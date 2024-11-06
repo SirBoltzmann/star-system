@@ -1,0 +1,164 @@
+body {
+    background: #050912;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+}
+
+.star-sistem {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+.star {
+    width: 30rem;
+    height: 30rem;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 6rem 0 #fed84c80,
+        0 0 20rem 4rem #e8a55233,
+        0 0 55rem 8rem #ff4f4f1a;
+    position: relative;
+}
+
+.planet, .planet::after {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+.planet {
+    background-color: #f5e5cc;
+    box-shadow: -2rem 0 5rem -1rem white;
+    overflow: hidden;
+    transition: 250ms;
+    left: 32rem;
+    transform: rotate(20deg);
+    animation: orbit 10s infinite ease-in-out;
+}
+
+.planet::after {
+    background: #1b1d28;
+    width: 2.5rem;
+    left: 2.5rem;
+    box-shadow: 0 0 0.75rem 0.95rem #262938;
+    animation: shadow 10s infinite ease-in-out;
+}
+
+@keyframes shadow {
+    0% {
+        width: 2.5rem;
+        left: 0;
+    }
+
+    25% {
+        width: 5rem;
+        left: 0;
+    }
+
+    50% {
+        width: 2.5rem;
+        left: 2.5rem;
+    }
+
+    75% {
+        width: 0rem;
+        left: 5rem;
+    }
+
+    80% {
+        left: 0;
+        width: 5rem;
+        box-shadow: 0 0 0.55rem 0.75rem #1f212e;
+    }
+
+    100% {
+        width: 2.5rem;
+        left: 0;
+    }
+}
+
+@keyframes orbit {
+    0%,
+    100% {
+        top: 2rem;
+        left: -15rem;
+        box-shadow: -2rem 0 5rem 0.5rem;
+    }
+
+    25% {
+        box-shadow: 0 0 3rem 1rem #412104b5;
+    }
+
+    75% {
+        box-shadow: 0 0 3rem 1rem black;
+    }
+
+    48% {
+        z-index: 2;
+    }
+
+    50% {
+        left: 40rem;
+        top: 20rem;
+        z-index: -1;
+        box-shadow: 2rem 0 5rem 0.5rem #ac6a4c82;
+    }
+
+    99% {
+        z-index: -1;
+    }
+}
+
+
+/*THE STARS at background*/
+.stars {
+    display: inline;
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    z-index: -2;
+}
+
+.blinkStarGroup1 {
+    animation: blinkingStarsG1 2s infinite ease-in-out;
+}
+
+.blinkStarGroup2 {
+    animation: blinkingStarsG2 2s infinite ease-in-out 1000ms;
+}
+
+@keyframes blinkingStarsG1 {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blinkingStarsG2 {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
