@@ -14,19 +14,59 @@ body {
     margin-top: 7rem;
 }
 
-.star {
+.proxima-centauri {
     width: 30rem;
     height: 30rem;
     background: white;
     border-radius: 50%;
     box-shadow: 
-        0 0 6rem 0 #fed84c80,
-        0 0 20rem 4rem #e8a55233,
+        0 0 4rem 0 #fed84c80,
+        0 0 15rem 4rem #e8a55233,
         0 0 55rem 8rem #ff4f4f1a;
     position: relative;
 }
 
-.planet, .planet::after {
+
+/*=======> Planet and moon <=========*/
+.proxima-b-and-moon {
+    position: absolute;
+    top: 3rem;
+    width: 8rem;
+    transition: 250ms;
+    left: 32rem;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: orbitPlanetAndMoon 15s infinite ease-in-out;
+}
+
+@keyframes orbitPlanetAndMoon {
+    0%,
+    100% {
+        z-index: 3;
+        top: 2rem;
+        left: -15rem;
+    }
+
+    48% {
+        z-index: 2;
+    }
+
+    50% {
+        left: 40rem;
+        top: 20rem;
+        z-index: -2;
+    }
+
+    99% {
+        z-index: -3;
+    }
+}
+
+
+/*=======> Proxima B (planet) <=========*/
+.proxima-b, .proxima-b::after {
     content: "";
     position: absolute;
     width: 5rem;
@@ -34,25 +74,24 @@ body {
     border-radius: 50%;
 }
 
-.planet {
+.proxima-b {
     background-color: #f5e5cc;
     box-shadow: -2rem 0 5rem -1rem white;
-    overflow: hidden;
     transition: 250ms;
-    left: 32rem;
+    overflow: hidden;
     transform: rotate(20deg);
-    animation: orbit 10s infinite ease-in-out;
+    animation: orbitPlanetB 15s infinite ease-in-out;
 }
 
-.planet::after {
+.proxima-b::after {
     background: #1b1d28;
     width: 2.5rem;
     left: 2.5rem;
     box-shadow: 0 0 0.75rem 0.95rem #262938;
-    animation: shadow 10s infinite ease-in-out;
+    animation: shadowPlanetB 15s infinite ease-in-out;
 }
 
-@keyframes shadow {
+@keyframes shadowPlanetB {
     0% {
         width: 2.5rem;
         left: 0;
@@ -85,12 +124,184 @@ body {
     }
 }
 
-@keyframes orbit {
+@keyframes orbitPlanetB {
     0%,
     100% {
-        top: 2rem;
-        left: -15rem;
-        box-shadow: -2rem 0 5rem 0.5rem;
+        box-shadow: -2rem 0 5rem 0rem;
+    }
+
+    25% {
+        box-shadow: 0 0 3rem 1rem #412104b5;
+    }
+
+    75% {
+        box-shadow: 0 0 3rem 1rem black;
+    }
+
+    50% {
+        box-shadow: 2rem 0 5rem 0.5rem #ac6a4c82;
+    }
+}
+
+
+/*=======> Proxima B moon (satellite) <=========*/
+.moon, .moon::after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.moon {
+    background-color: #f5e5cc85;
+    box-shadow: -2rem 0 5rem -1rem white;
+    transition: 250ms;
+    overflow: hidden;
+    transform: rotate(20deg);
+    animation: orbitMoon 8s infinite ease-in-out;
+}
+
+.moon::after {
+    background: #1b1d28;
+    width: 2rem;
+    left: 2rem;
+    box-shadow: 0 0 0.75rem 0.95rem #262938;
+    animation: shadowMoon 8s infinite ease-in-out;
+}
+
+@keyframes shadowMoon {
+    0% {
+        width: 1.25rem;
+        left: 0;
+    }
+
+    25% {
+        width: 2rem;
+        left: 0;
+    }
+
+    50% {
+        width: 1.25rem;
+        left: 1.25rem;
+    }
+
+    75% {
+        width: 0rem;
+        left: 2.5rem;
+    }
+
+    80% {
+        left: 0;
+        width: 2rem;
+        box-shadow: 0 0 0.55rem 0.75rem #1f212e;
+    }
+
+    100% {
+        width: 2rem;
+        left: 0;
+    }
+}
+
+@keyframes orbitMoon {
+    0%,
+    100% {
+        top: 1rem;
+        left: -2rem;
+        box-shadow: -2rem 0 5rem 0rem;
+        z-index: 5;
+    }
+
+    25% {
+        box-shadow: 0 0 3rem 1rem #412104b5;
+    }
+
+    75% {
+        box-shadow: 0 0 3rem 1rem black;
+    }
+
+    48% {
+        z-index: 4;
+    }
+
+    50% {
+        left: 8rem;
+        top: 5.4rem;
+        z-index: -2;
+        box-shadow: 2rem 0 5rem 0.5rem #ac6a4c82;
+    }
+
+    99% {
+        z-index: -3;
+    }
+}
+
+/*=========> Proxima C (planet) <=========*/
+.proxima-c, .proxima-c::after {
+    content: "";
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.proxima-c {
+    background-color: #ae9e84;
+    box-shadow: -2rem 0 5rem -1rem white;
+    overflow: hidden;
+    transition: 250ms;
+    left: 20rem;
+    transform: rotate(20deg);
+    animation: orbitPlanetC 8s infinite ease-in-out;
+}
+
+.proxima-c::after {
+    background: #12131a;
+    width: 2.5rem;
+    left: 2.5rem;
+    box-shadow: 0 0 0.75rem 0.95rem #262938;
+    animation: shadowPlanetC 8s infinite ease-in-out;
+}
+
+@keyframes shadowPlanetC {
+    0% {
+        width: 1.25rem;
+        left: 0;
+    }
+
+    25% {
+        width: 2.5rem;
+        left: 0;
+    }
+
+    50% {
+        width: 1.25rem;
+        left: 1.25rem;
+    }
+
+    75% {
+        width: 0rem;
+        left: 2.5rem;
+    }
+
+    80% {
+        left: 0;
+        width: 2.5rem;
+        box-shadow: 0 0 0.55rem 0.75rem #1f212e;
+    }
+
+    100% {
+        width: 1.25rem;
+        left: 0;
+    }
+}
+
+@keyframes orbitPlanetC {
+    0%,
+    100% {
+        top: 5rem;
+        left: -7rem;
+        box-shadow: -2rem 0 5rem 0.3rem rgba(235, 217, 158, 0.721);
     }
 
     25% {
@@ -106,10 +317,10 @@ body {
     }
 
     50% {
-        left: 40rem;
-        top: 20rem;
+        left: 35rem;
+        top: 22rem;
         z-index: -1;
-        box-shadow: 2rem 0 5rem 0.5rem #ac6a4c82;
+        box-shadow: 2rem 0 5rem 0.5rem #b9785a82;
     }
 
     99% {
@@ -118,13 +329,14 @@ body {
 }
 
 
-/*THE STARS at background*/
+
+/*=========> The stars at the background (universe) <=========*/
 .stars {
     display: inline;
     position: absolute;
     background-color: white;
     border-radius: 50%;
-    z-index: -2;
+    z-index: -100;
 }
 
 .blinkStarGroup1 {
